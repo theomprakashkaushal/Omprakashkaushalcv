@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Om Prakash Kaushal - Curriculum Vitae (CV)</title>
+  <style>
+    :root {
+      --primary: #0f2942;
+      --primary-light: #1e4268;
+      --accent: #b8891e;
+      --bg: #f1f4f8;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #526071;
+      --border: #e2e8f0;
+      --pill-bg: #eef3f8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 24px 14px;
+    }
+
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(15, 41, 66, 0.08);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #ffffff;
+      padding: 34px 32px 30px;
+      border-bottom: 4px solid var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .avatar-wrap {
+      width: 112px;
+      height: 112px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar-fallback {
+      display: none;
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #ffffff;
+    }
+
+    .cv-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #f8e4a8;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .header-info h1 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .header-info .role {
+      font-size: 1.02rem;
+      font-weight: 500;
+      color: #dbeafe;
+      margin-bottom: 12px;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      font-size: 0.88rem;
+      opacity: 0.96;
+    }
+
+    .contact-bar a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .contact-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content */
+    .content {
+      padding: 30px 32px;
+    }
+
+    .section {
+      margin-bottom: 26px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+    }
+
+    .summary-text {
+      font-size: 0.96rem;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .objective-box {
+      background: #f8fafc;
+      border-left: 3px solid var(--accent);
+      padding: 10px 14px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .objective-box strong {
+      color: var(--primary);
+    }
+
+    /* Experience & Education Items */
+    .item {
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--border);
+      break-inside: avoid;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .item-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .item-date {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--pill-bg);
+      padding: 2px 10px;
+      border-radius: 12px;
+    }
+
+    .item-subtitle {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .item-desc {
+      font-size: 0.94rem;
+      color: var(--text);
+    }
+
+    /* Two-column Grid */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      break-inside: avoid;
+    }
+
+    /* Pills & Lists */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      background: var(--pill-bg);
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 5px 11px;
+      border-radius: 6px;
+      border: 1px solid #d8e2ee;
+    }
+
+    .clean-list {
+      list-style: none;
+    }
+
+    .clean-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 7px;
+      font-size: 0.94rem;
+    }
+
+    .clean-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Key-Value Rows */
+    .info-row {
+      display: grid;
+      grid-template-columns: 165px 1fr;
+      padding: 6px 0;
+      border-bottom: 1px dashed #eef2f6;
+      font-size: 0.94rem;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .value {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Reference & Declaration */
+    .ref-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.93rem;
+      break-inside: avoid;
+    }
+
+    .ref-card a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .ref-card a:hover {
+      text-decoration: underline;
+    }
+
+    .declaration-wrap {
+      break-inside: avoid;
+    }
+
+    .declaration {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .signature {
+      margin-top: 8px;
+      font-style: normal;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* Footer */
+    .footer {
+      background: #f8fafc;
+      padding: 14px 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .print-btn {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .print-btn:hover {
+      opacity: 0.92;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 640px) {
+      body {
+        padding: 10px 8px;
+      }
+      .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 26px 18px;
+      }
+      .contact-bar {
+        justify-content: center;
+      }
+      .content {
+        padding: 20px 18px;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .info-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+      .label {
+        font-size: 0.82rem;
+      }
+      .footer {
+        padding: 14px 18px;
+      }
+    }
+
+    /* A4 Print / Save as PDF */
+    @media print {
+      @page {
+        margin: 10mm;
+      }
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+      }
+      .print-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="avatar-wrap">
+        <img
+          src="photo.jpg"
+          alt="Om Prakash Kaushal"
+          onerror="this.style.display='none'; document.getElementById('fallback').style.display='flex';"
+        />
+        <div id="fallback" class="avatar-fallback">OP</div>
+      </div>
+      <div class="header-info">
+        <span class="cv-badge">Curriculum Vitae</span>
+        <h1>Om Prakash Kaushal</h1>
+        <div class="role">Senior Content Writer &bull; Editor-in-Chief</div>
+        <div class="contact-bar">
+          <span>&#128222; <a href="tel:+918271646285">+91 8271646285</a></span>
+          <span>&#9993; <a href="mailto:itsofficiallyom@gmail.com">itsofficiallyom@gmail.com</a></span>
+          <span>&#128205; Palamu / Ranchi, Jharkhand</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- PROFESSIONAL SUMMARY & CAREER OBJECTIVE -->
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="summary-text">
+          Accomplished Senior Content Writer with over 4 years of experience crafting engaging and impactful content across diverse platforms. Proficient in content strategy development, SEO optimization, and audience engagement techniques. With a keen eye for detail and a passion for storytelling, excels in translating complex ideas into compelling narratives that resonate with target audiences.
+        </p>
+        <div class="objective-box">
+          <strong>Career Objective:</strong> To secure a responsible career opportunity to fully utilize my skills, while making a significant contribution to the success of the company, fulfilling organizational goals, and climbing the career ladder through continuous learning.
+        </div>
+      </section>
+
+      <!-- PROFESSIONAL EXPERIENCE -->
+      <section class="section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Senior Content Writer</span>
+            <span class="item-date">July 2022 &ndash; Present</span>
+          </div>
+          <div class="item-subtitle">Daily Research Plot</div>
+          <p class="item-desc">
+            Adeptly crafts engaging and insightful content that captivates audiences in the entertainment sphere. Leverages a deep understanding of industry trends and audience preferences to produce high-quality articles that entertain, inform, and resonate with readers.
+          </p>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Editor-in-Chief</span>
+            <span class="item-date">Jan 2022 &ndash; Mar 2022</span>
+          </div>
+          <div class="item-subtitle">INDreport.com</div>
+          <p class="item-desc">
+            Led editorial teams to produce high-quality content that captivated and informed audiences. Leveraged strategic vision and strong communication skills to oversee content direction, uphold editorial standards, and drive publication growth.
+          </p>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Senior Content Writer</span>
+            <span class="item-date">Aug 2021 &ndash; Apr 2022</span>
+          </div>
+          <div class="item-subtitle">Otakukart.com</div>
+          <p class="item-desc">
+            Crafted compelling and SEO-optimized content across multiple platforms to engage target audiences. Drove content strategy, ensuring alignment with business objectives while maintaining high editorial standards.
+          </p>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Master of Arts in English</span>
+            <span class="item-date">2021 &ndash; 2023</span>
+          </div>
+          <div class="item-subtitle">Ranchi University, Ranchi &bull; CGPA: 7.81</div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Bachelor of Arts in English</span>
+            <span class="item-date">2018 &ndash; 2021</span>
+          </div>
+          <div class="item-subtitle">Dr. Shyama Prasad Mukherji University, Ranchi &bull; CGPA: 6.6</div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Higher Secondary Education (Class XII)</span>
+            <span class="item-date">2017</span>
+          </div>
+          <div class="item-subtitle">M.K D.A.V Public School, Daltonganj &bull; CGPA: 6.5</div>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Secondary Education (Class X)</span>
+            <span class="item-date">2015</span>
+          </div>
+          <div class="item-subtitle">Heritage International School, Daltonganj &bull; CGPA: 9.0</div>
+        </div>
+      </section>
+
+      <!-- SKILLS & TECHNICAL PROFICIENCY -->
+      <section class="section two-col">
+        <div>
+          <h2 class="section-title">Technical Proficiency</h2>
+          <div class="pill-group">
+            <span class="pill">MS Office</span>
+            <span class="pill">Google Search Console</span>
+            <span class="pill">Google Analytics</span>
+            <span class="pill">WordPress</span>
+          </div>
+        </div>
+        <div>
+          <h2 class="section-title">Core Competencies</h2>
+          <div class="pill-group">
+            <span class="pill">Leadership &amp; Management</span>
+            <span class="pill">Communication</span>
+            <span class="pill">Adaptability &amp; Resilience</span>
+            <span class="pill">Problem Solving</span>
+            <span class="pill">Time Management</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS & INTERESTS -->
+      <section class="section two-col">
+        <div>
+          <h2 class="section-title">Certifications</h2>
+          <ul class="clean-list">
+            <li>Digital Marketing &mdash; Internshala</li>
+            <li>Full Stack Web Development &mdash; PW Skills</li>
+            <li>Advanced Diploma in Computer Application &mdash; Alpha Institute of CA</li>
+            <li>English &amp; Hindi Typing &mdash; Alpha Educational Center</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="section-title">Interests &amp; Activities</h2>
+          <ul class="clean-list">
+            <li>Travel and Exploration</li>
+            <li>Technology and Gaming</li>
+            <li>Photography Editing</li>
+            <li>Learning New Skills</li>
+            <li>Reading and Intellectual Pursuits</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ADDITIONAL INFORMATION -->
+      <section class="section">
+        <h2 class="section-title">Additional Information</h2>
+        <div class="info-row">
+          <div class="label">Date of Birth</div>
+          <div class="value">23 June 2000</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Languages</div>
+          <div class="value">English, Hindi</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Permanent Address</div>
+          <div class="value">At- Ward No. 09, Vill-Madanpur, Chattarpur, Palamu, Jharkhand, 822113</div>
+        </div>
+      </section>
+
+      <!-- ACADEMIC REFERENCE -->
+      <section class="section">
+        <h2 class="section-title">Reference</h2>
+        <div class="ref-card">
+          <strong>Dr. Vinay Bharat</strong> &mdash; H.O.D, English Department<br />
+          Dr. Shyama Prasad Mukherji University, Morhabadi, Ranchi<br />
+          Email: <a href="mailto:vinaybharat@ymail.com">vinaybharat@ymail.com</a> &bull; Contact: <a href="tel:+917482896620">+91 7482896620</a>
+        </div>
+      </section>
+
+      <!-- DECLARATION -->
+      <section class="section declaration-wrap">
+        <h2 class="section-title">Declaration</h2>
+        <p class="declaration">
+          I hereby declare that the above information is correct and to the best of my belief and knowledge.
+        </p>
+        <div class="signature">Om Prakash Kaushal</div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span>Om Prakash Kaushal &bull; Curriculum Vitae</span>
+      <button class="print-btn" onclick="window.print()">Download / Print CV</button>
+    </footer>
+  </div>
+
+</body>
+</html>
